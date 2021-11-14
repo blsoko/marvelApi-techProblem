@@ -1,0 +1,25 @@
+.search-bar{
+    background-color: var(--black-2);
+    position: relative;
+    padding: 0.5rem;
+    &__image{
+        width: 70px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__form-input{
+        margin: 0 auto;
+        width: 200px;
+        font-size: 16px;
+    }
+    &__input{
+       margin: 0 auto;
+       height: 1em;
+       width: 100%;
+       padding-left: 0.5em;
+       padding-top: 0.5em;
+       padding-bottom:  0.5em;
+    }
+}

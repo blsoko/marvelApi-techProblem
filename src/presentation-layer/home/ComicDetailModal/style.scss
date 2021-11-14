@@ -1,0 +1,15 @@
+.character-modal {
+    position: fixed;
+    z-index: 1;
+    background-color: #ccc;
+    left: 50%;
+    right: 0;
+    top: 50%; 
+    bottom: 0;
+    width: 90%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    &__image{
+        width: 200px;
+    }
+}
