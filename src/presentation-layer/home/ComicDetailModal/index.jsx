@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { comicService } from "../../../application/services/comic.service";
+import { favoriteService } from "../../../application/services/favorite.service";
+import imageclose from "./../../../assets/btn-close.png";
+import imageshopcart from "./../../../assets/btn-favourites-default.png";
+import imagefavourites from "./../../../assets/shopping-cart-primary.png";
 
 import "./style.scss";
 
@@ -17,7 +21,13 @@ const ComicDetailModal = ({ comicUri, onClose }) => {
   if (comic) {
     return (
       <div className={`character-modal character-modal--open`}>
-        <button className="character-modal__close-btn" onClick={onClose} >X</button>
+        <button className="character-modal__close-btn" onClick={onClose}>
+              <img
+                src={imageclose}
+                alt={comic.name}
+                className="character-modal__image-close"
+              />
+              </button>
         <div className="character-modal__container">
           <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} className="character-modal__image" alt={comic.title} />
           <div className="character-modal__content">
@@ -26,8 +36,21 @@ const ComicDetailModal = ({ comicUri, onClose }) => {
           </div>
         </div>
         <div className="character-modal__actions">
-          <button>Added to favorite</button>
-          <button>Buy for $30 </button>
+          <button onClick={()=> favoriteService.save(comic) }>
+              <img
+                src={imageshopcart}
+                alt=""
+                className="favorite__image-shopcart"
+              />Add to favorite
+          </button>
+          <button>
+              <img
+                src={imagefavourites}
+                alt=""
+                className="favorite__image-favourites"
+              />
+              {comic.prices[1] ? "$" + comic.prices[1].price : "$0"}
+          </button>
         </div>
       </div>
     );

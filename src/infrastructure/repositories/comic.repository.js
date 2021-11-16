@@ -10,4 +10,10 @@ export const comicRepository = {
         return comicDTO.data?.results[0]
       });
   },
+  save: (comic) => {
+    var storedArray = localStorage.getItem("favorites");
+    const ourArray = JSON.parse(storedArray) || [];
+    ourArray.push(comic);
+    sessionStorage.setItem("favorites",JSON.stringify(ourArray));
+  }
 };

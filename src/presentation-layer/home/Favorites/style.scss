@@ -3,32 +3,28 @@
     text-align: center;
     margin-bottom: 20px;
     padding-top: 20px;
-    position: relative;
-
-    &____imgcontainer {
+    .favorite {
         position: relative;
-    }
-
-    &__image-thrash{
-        position: absolute;
-        right: 4.8rem;
-        top: 0.5rem;
-        width: 2rem;
-    }
-
-    &__image {
-        width: 10rem;
-        height: 12.5rem;
-        z-index: -1;
-    }
-
-    &__title {
         display: inline-block;
-        margin-top: 0.3rem;
-        margin-bottom: 0.5rem;
-        font: var(--marvelfont-1);
-        font-size: var(--font_size-2);
-        font-weight: var(--font_weight-2);
-        color: var(--grey_title-1);
+        width: 9.3rem;
+        margin-bottom: 20px;
+        &__image {
+            width: 8rem;
+            height: auto;
+        }
+        &__btn-delete{
+            position: absolute;
+            right: -0.3rem;
+            top: -0.7rem;
+            width: 2rem;
+            background: none;
+            border: none;
+            .favorite__image-thrash{
+                width: 100%;
+            }
+        }
+        &__title {
+
+        }
     }
 }

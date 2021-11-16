@@ -4,26 +4,34 @@ import ReactPaginate from "react-paginate";
 import Searchbar from "./Searchbar";
 import Characters from "./Characters";
 import Favorites from "./Favorites";
-import { characterService } from "../../application/services/character.service";
+import SortByHeader from "./SortByHeader";
 
+import { characterService } from "../../application/services/character.service";
 import "./home.scss";
 
 const totalPerPage = 10;
 
+const sortByOptions = [
+  { value: "name", name: "ASC name" },
+  { value: "modified", name: "ASC modified" },
+  { value: "-name", name: "DESC name" },
+  { value: "-modified", name: "DESC modified" },
+];
 const Home = () => {
   const [characters, setCharacters] = useState();
   const [totalCharacters, setTotalCharacters] = useState(0);
   const [activeNumberPage, setActiveNumberPage] = useState(0);
   const [windowsWidth] = useState(window.innerWidth);
+  const [sortBy, setSortBy] = useState(sortByOptions[0].value);
 
   useEffect(() => {
     characterService
-      .getAllByOffsetAndLimit(activeNumberPage)
-      .then(({ results, total }) => {
+      .getAllByOffsetAndLimit(activeNumberPage,sortBy)
+      .then(({ results, total  }) => {
         setCharacters(results);
         setTotalCharacters(total);
-      });
-  }, [activeNumberPage]);
+      }).catch(console.error);
+  }, [activeNumberPage, sortBy]);
 
   const handlePageClick = ({ selected }) => {
     setActiveNumberPage(selected * totalPerPage);
@@ -33,14 +41,15 @@ const Home = () => {
     <main className="home">
       <Searchbar className="home__search-bar" />
       <div className="home__characters">
+        <SortByHeader sortOptions={sortByOptions} handleSortBySelected={setSortBy} />
         <Characters className="" characters={characters} />
         <ReactPaginate
           breakLabel="..."
           nextLabel="next >"
           onPageChange={handlePageClick}
           pageCount={totalCharacters}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={windowsWidth <= 560 ? 1: 4}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={windowsWidth <= 560 ? 1 : 4}
           previousLabel="< prev"
           renderOnZeroPageCount={null}
         />
