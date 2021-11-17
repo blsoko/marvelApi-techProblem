@@ -1,23 +1,29 @@
-
 export const favoriteRepository = {
   getAll: async () => {
     var storedFavorites = localStorage.getItem("favorites");
-    const ourArray = await JSON.parse(storedFavorites) || [];
-    return ourArray;
+    const favoritesParsed = (await JSON.parse(storedFavorites)) || [];
+    return favoritesParsed;
   },
-  save: (comic) => {
+  save: async (comic, fnCallback) => {
     var storedFavorites = localStorage.getItem("favorites");
     const ourArray = JSON.parse(storedFavorites) || [];
+    const comicFound = ourArray.find(
+      (comicStored) => comicStored.id === comic.id
+    );
+    if (comicFound) return
     ourArray.push(comic);
-    localStorage.setItem("favorites",JSON.stringify(ourArray));
+    localStorage.setItem("favorites", JSON.stringify(ourArray));
+    fnCallback("Success");
   },
   deleteById: (comicId) => {
     var storedFavorites = localStorage.getItem("favorites");
-    const ourArray = JSON.parse(storedFavorites);
-    if(!ourArray ||  ourArray.length === 0) {
-     return 
+    const favoritesParsed = JSON.parse(storedFavorites);
+    if (!favoritesParsed || favoritesParsed.length === 0) {
+      return;
     }
-    const comicListFiltered = ourArray.filter(( {id })=> id !== comicId);
-    localStorage.setItem("favorites",JSON.stringify(comicListFiltered));
-  }
+    const comicListFiltered = favoritesParsed.filter(
+      ({ id }) => id !== comicId
+    );
+    localStorage.setItem("favorites", JSON.stringify(comicListFiltered));
+  },
 };

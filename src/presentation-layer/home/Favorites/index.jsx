@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import imagedelete from "./../../../assets/btn-delete.png";
+import imagefavourites from "./../../../assets/favourites.png";
 import { favoriteService } from "../../../application/services/favorite.service";
 
 import "./style.scss";
@@ -23,6 +24,14 @@ const Favorites = ({ className }) => {
 
   return (
     <aside className={`favorites ${className}`}>
+      <h2 className="favorites__title">
+        <img
+          src={imagefavourites}
+          alt="favorites.title"
+          className="favorite__icon"
+        />
+        My favourites
+      </h2>
       {favorites.length > 0 &&
         favorites.map(({ thumbnail, title, id }) => (
           <div className="favorite" key={id}>

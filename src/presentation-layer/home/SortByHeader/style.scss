@@ -1,0 +1,22 @@
+.sortByHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    h2{
+        align-items: center;
+        display: flex;
+    }
+}
+
+#sortBy {
+    padding: 8px 12px;
+    color:var(--black_title-1);
+    border: 0.5px solid #e6e6e6;
+    background-color: #fff;
+
+
+}
+// display inline flex
+  // space-between

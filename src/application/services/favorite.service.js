@@ -4,8 +4,8 @@ export const favoriteService = {
   getAll: () => {
     return favoriteRepository.getAll();
   },
-  save: (comic) => {
-    favoriteRepository.save(comic);
+  save: (comic, fnCallback) => {
+    favoriteRepository.save(comic, fnCallback);
   },
   deleteById: (comicId) => {
     return favoriteRepository.deleteById(comicId);

@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import imagecharacter from "./../../../assets/characters.png";
+
+import './style.scss';
 
 const SortByHeader = ({ sortOptions, handleSortBySelected }) => {
-  // display inline flex
-  // space-between
+
   return (
-    <div>
+    <div className="sortByHeader">
       <h2>
-        <img />
+        <img 
+          src={imagecharacter}
+          alt=""
+          className="sortByHeader__image-character"
+        />
         Characters
       </h2>
       <select name="sortBy" id="sortBy" onChange={({target})=> handleSortBySelected(target.value)}>

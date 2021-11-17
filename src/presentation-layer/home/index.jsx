@@ -23,15 +23,16 @@ const Home = () => {
   const [activeNumberPage, setActiveNumberPage] = useState(0);
   const [windowsWidth] = useState(window.innerWidth);
   const [sortBy, setSortBy] = useState(sortByOptions[0].value);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     characterService
-      .getAllByOffsetAndLimit(activeNumberPage,sortBy)
+      .getAllByOffsetAndLimit(input,activeNumberPage, sortBy)
       .then(({ results, total  }) => {
         setCharacters(results);
         setTotalCharacters(total);
       }).catch(console.error);
-  }, [activeNumberPage, sortBy]);
+  }, [activeNumberPage, input, sortBy]);
 
   const handlePageClick = ({ selected }) => {
     setActiveNumberPage(selected * totalPerPage);
@@ -39,18 +40,19 @@ const Home = () => {
 
   return (
     <main className="home">
-      <Searchbar className="home__search-bar" />
+      <Searchbar input={setInput} className="home__search-bar" />
       <div className="home__characters">
         <SortByHeader sortOptions={sortByOptions} handleSortBySelected={setSortBy} />
         <Characters className="" characters={characters} />
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          className="home__paginate"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageCount={totalCharacters}
           marginPagesDisplayed={1}
           pageRangeDisplayed={windowsWidth <= 560 ? 1 : 4}
-          previousLabel="< prev"
+          previousLabel="<"
           renderOnZeroPageCount={null}
         />
       </div>
@@ -59,5 +61,4 @@ const Home = () => {
     </main>
   );
 };
-
 export default Home;

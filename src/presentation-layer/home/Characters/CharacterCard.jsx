@@ -39,7 +39,7 @@ const CharacterCard = ({ character }) => {
           >
             {name}
           </p>
-        )): <p>no hay erlated</p>}
+        )): <p>There aren't comics available</p>}
       </div>
       {comicURI && (
         <ComicDetailModal
