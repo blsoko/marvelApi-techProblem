@@ -5,16 +5,6 @@ ul {
   text-decoration: none;
   text-align: center;
   margin-left: 10rem;
-  /* Gray */
-
-  li {
-    width: 2rem;
-    height: 2rem;
-    line-height: 30px;
-    margin: 0 3px;
-    border: 1px solid #d6d6d6;
-    background-color: #fff;
-  }
 }
 
 .home {
@@ -26,6 +16,8 @@ ul {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: none;
     background-color: white;
+    line-height: 30px;
+    margin: 0 3px;
     a {
       width: 100%;
       display: block;

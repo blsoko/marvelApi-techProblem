@@ -12,8 +12,8 @@ export const comicRepository = {
   },
   save: (comic) => {
     var storedArray = localStorage.getItem("favorites");
-    const ourArray = JSON.parse(storedArray) || [];
-    ourArray.push(comic);
-    sessionStorage.setItem("favorites",JSON.stringify(ourArray));
+    const parsedArray = JSON.parse(storedArray) || [];
+    parsedArray.push(comic);
+    sessionStorage.setItem("favorites",JSON.stringify(parsedArray));
   }
 };

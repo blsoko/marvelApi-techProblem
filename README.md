@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# _MARVEL WEBPAGE_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### By _**JOSE GIRALDO**_
 
-## Available Scripts
+#### _WEBSITE CONSUMING MARVEL API_
 
-In the project directory, you can run:
+## Technologies Used
 
-### `yarn start`
+* _REACT_
+* _JAVASCRIPT_
+* _SASS_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+_This project was created using hexagonal arquitecture because its easier to maintain over time, also separating our components and divide them for their function it's a good way to make future changes like using other tech or when someone new in the team have to work with the project_
 
-### `yarn test`
+## Scaffolding
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src
+└───assets --> Files png or svg.    
+│
+└───application --> all the logic that affects and define the logic of our aplication, constant, services etc...
+│
+└───presentation-layer --> All visual components 
+│   └───home --> Where we are passing all our components to render it in app.js
+└───infraestructure --> Handling interaction with the exterior
+     └───repositories --> Making a request, parse data into a defined object
+     └───http --> Check and centralize our API consuming made it by the server
+```
 
-### `yarn build`
+## Content
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Within the functions already implemented: filter, pager, add/delete favorite comic for an extra I added Search by name also it is full responsive.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run test
+npm test -- App.test.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup/Installation Requirements
 
-### `yarn eject`
+* _npm run_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## FireBase Deploy
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://fir-marvel-2ae73.web.app/

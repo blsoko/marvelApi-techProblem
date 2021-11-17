@@ -6,13 +6,13 @@ export const favoriteRepository = {
   },
   save: async (comic, fnCallback) => {
     var storedFavorites = localStorage.getItem("favorites");
-    const ourArray = JSON.parse(storedFavorites) || [];
-    const comicFound = ourArray.find(
+    const parsedArray = JSON.parse(storedFavorites) || [];
+    const comicFound = parsedArray.find(
       (comicStored) => comicStored.id === comic.id
     );
     if (comicFound) return
-    ourArray.push(comic);
-    localStorage.setItem("favorites", JSON.stringify(ourArray));
+    parsedArray.push(comic);
+    localStorage.setItem("favorites", JSON.stringify(parsedArray));
     fnCallback("Success");
   },
   deleteById: (comicId) => {
