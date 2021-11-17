@@ -38,7 +38,8 @@ npm test -- App.test.js
 
 ## Setup/Installation Requirements
 
-* _npm run_
+* _npm install_
+* _npm start_
 
 ## FireBase Deploy
 
